@@ -107,10 +107,11 @@ El proyecto sigue un flujo de trabajo estructurado y reproducible:
 ## ✍️ Autor
 
 *   **JOHANNA ROCHA CUEVAS**
+*   Tu Perfil de GitHub
 *   (https://github.com/yoysrocu-cmd))
 *   Proyecto desarrollado para el Módulo 16 - Cierre: Proyecto Final.
 
 
 *   Referencias
 Financial Fraud: Labeled Transaction Data (2026)
-  [kaggle (https://www.kaggle.com/datasets/mubashirsidiki/financial-fraud-labeled-transaction-data-2026?resource=download)]
+[Financial Fraud Dataset en Kaggle](https://www.kaggle.com/datasets/mubashirsidiki/financial-fraud-labeled-transaction-data-2026?resource=download)
