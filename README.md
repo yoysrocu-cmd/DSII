@@ -1,4 +1,5 @@
-Data Science II - Machine Learning
+Data Science II - Machine Learning para la Ciencia de Datos
+Comisión #95405 Coderhouse 
 ---
 
 # 🛡️ Detección de Fraude Financiero con Machine Learning
@@ -51,7 +52,7 @@ Sigue estos pasos para reproducir los resultados obtenidos:
     git clone https://github.com/TU_USUARIO/TU_REPOSITORIO.git
     ```
 2.  **Abrir el Notebook:**
-    *   Puedes abrir el archivo `Entrega_II_Proy_Fraude.ipynb` directamente en [Google Colab]([https://colab.research.google.com/](https://colab.research.google.com/drive/12Z5Jl2H3bDysw4NFV66rwlgUsXWXJWxu?usp=sharing)) o en tu entorno local de Jupyter.
+    *   Puedes abrir el archivo `Entrega_II_Proy_Fraude.ipynb` directamente en [Google Colab]([https://colab.research.google.com/] (https://colab.research.google.com/drive/12Z5Jl2H3bDysw4NFV66rwlgUsXWXJWxu?usp=sharing) o en tu entorno local de Jupyter.
 3.  **Cargar el Dataset:**
     *   Si estás en Colab, ejecuta la celda de carga de datos y sube el archivo `fraud_1500.csv` cuando se te solicite. *(El código ya está preparado para esto).*
     *   Si estás en local, asegúrate de que el archivo `.csv` esté en la misma carpeta que el notebook.
@@ -88,13 +89,18 @@ El proyecto sigue un flujo de trabajo estructurado y reproducible:
 
 *(Nota: Reemplaza estos valores con los que obtengas al ejecutar tu notebook).*
 
-*   **Rendimiento del Modelo:** El modelo XGBoost optimizado logró un **AUC-ROC de [X.XX]** en el conjunto de test, demostrando una excelente capacidad para distinguir entre transacciones normales y fraudulentas.
+*   **Rendimiento del Modelo:** El modelo XGBoost optimizado logró un **AUC-ROC de [0.95 y 099]** en el conjunto de test, demostrando una excelente capacidad para distinguir entre transacciones normales y fraudulentas.
 *   **Manejo del Desbalance:** Gracias al uso de `scale_pos_weight` y la métrica F1-Score, el modelo logró detectar una proporción significativa de los fraudes reales, a pesar de que representan menos del 1% del total de los datos.
 *   **Explicabilidad (SHAP):** El análisis SHAP reveló que las variables más determinantes para predecir un fraude son:
-    1.  `[Variable 1, ej: amount]`
-    2.  `[Variable 2, ej: hour]`
-    3.  `[Variable 3, ej: device]`
-    *   *Implicación de Negocio:* Esto permite al equipo de riesgo enfocar sus reglas de negocio y alertas tempranas en estas características específicas, optimizando sus recursos.
+    1.  `merchant_risk_score` (Puntaje de riesgo del comercio)
+    2.  `amount` (Monto de la transacción)
+    3.  `ip_risk_score` (Puntaje de riesgo de la dirección IP)
+
+*   💡**Implicación de Negocio:** 
+     *   Un `merchant_risk_score` alto indica que el comercio tiene un historial previo de fraudes, por lo que el modelo aprende a desconfiar de él.
+     *   Montos (`amount`) muy altos o atípicos (comparados con el promedio histórico del cliente) son un detonante claro de alerta.
+     *   Un `ip_risk_score` elevado sugiere que la transacción se origina desde una ubicación o red sospechosa (ej. VPNs, proxies o países de alto riesgo).
+     *   Esto permite al equipo de riesgo priorizar sus alertas en estas tres características, optimizando sus recursos.
 
 ---
 
@@ -104,9 +110,6 @@ El proyecto sigue un flujo de trabajo estructurado y reproducible:
 *   (https://github.com/yoysrocu-cmd))
 *   Proyecto desarrollado para el Módulo 16 - Cierre: Proyecto Final.
 
----
 
-### 💡 Consejos para tu entrega:
-1.  **Reemplaza los textos entre corchetes `[]`** con los datos reales de tu proyecto (tu nombre, tu usuario de GitHub y los resultados reales de tu modelo).
-2.  Asegúrate de que el nombre del archivo de tu notebook coincida con el que puse en el README (`Proyecto_Final_Fraude.ipynb`). Si le pusiste otro nombre, cámbialo en el README.
-3.  Al subir este README a GitHub, se mostrará automáticamente en la página principal de tu repositorio, dándole un aspecto muy profesional a tu entrega.
+*   Referencias
+Financial Fraud: Labeled Transaction Data (2026) 
