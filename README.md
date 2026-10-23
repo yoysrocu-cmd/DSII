@@ -112,4 +112,5 @@ El proyecto sigue un flujo de trabajo estructurado y reproducible:
 
 
 *   Referencias
-Financial Fraud: Labeled Transaction Data (2026) 
+Financial Fraud: Labeled Transaction Data (2026)
+(https://www.kaggle.com/datasets/mubashirsidiki/financial-fraud-labeled-transaction-data-2026?resource=download)
