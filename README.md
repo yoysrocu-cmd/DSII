@@ -52,7 +52,7 @@ Sigue estos pasos para reproducir los resultados obtenidos:
     git clone https://github.com/TU_USUARIO/TU_REPOSITORIO.git
     ```
 2.  **Abrir el Notebook:**
-    *   Puedes abrir el archivo `Entrega_II_Proy_Fraude.ipynb` directamente en [Google Colab]([https://colab.research.google.com/] (https://colab.research.google.com/drive/12Z5Jl2H3bDysw4NFV66rwlgUsXWXJWxu?usp=sharing) o en tu entorno local de Jupyter.
+    *   Puedes abrir el archivo `Entrega_II_Proy_Fraude.ipynb` directamente en [Google Colab]([https://colab.research.google.com/]) (https://colab.research.google.com/drive/12Z5Jl2H3bDysw4NFV66rwlgUsXWXJWxu?usp=sharing) o en tu entorno local de Jupyter.
 3.  **Cargar el Dataset:**
     *   Si estás en Colab, ejecuta la celda de carga de datos y sube el archivo `fraud_1500.csv` cuando se te solicite. *(El código ya está preparado para esto).*
     *   Si estás en local, asegúrate de que el archivo `.csv` esté en la misma carpeta que el notebook.
