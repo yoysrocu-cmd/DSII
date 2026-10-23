@@ -87,21 +87,18 @@ El proyecto sigue un flujo de trabajo estructurado y reproducible:
 
 ## 📈 Resultados y Conclusiones
 
-*(Nota: Reemplaza estos valores con los que obtengas al ejecutar tu notebook).*
+**Nota de Transparencia:** Los resultados a continuación reflejan la **ejecución real del notebook** sobre el conjunto de test (300 transacciones, de las cuales solo 2 son fraudes). No se reportan métricas infladas.
 
-*   **Rendimiento del Modelo:** El modelo XGBoost optimizado logró un **AUC-ROC de [0.95 y 099]** en el conjunto de test, demostrando una excelente capacidad para distinguir entre transacciones normales y fraudulentas.
-*   **Manejo del Desbalance:** Gracias al uso de `scale_pos_weight` y la métrica F1-Score, el modelo logró detectar una proporción significativa de los fraudes reales, a pesar de que representan menos del 1% del total de los datos.
-*   **Explicabilidad (SHAP):** El análisis SHAP reveló que las variables más determinantes para predecir un fraude son:
-    1.  `merchant_risk_score` (Puntaje de riesgo del comercio)
-    2.  `amount` (Monto de la transacción)
-    3.  `ip_risk_score` (Puntaje de riesgo de la dirección IP)
-
-*   💡**Implicación de Negocio:** 
-     *   Un `merchant_risk_score` alto indica que el comercio tiene un historial previo de fraudes, por lo que el modelo aprende a desconfiar de él.
-     *   Montos (`amount`) muy altos o atípicos (comparados con el promedio histórico del cliente) son un detonante claro de alerta.
-     *   Un `ip_risk_score` elevado sugiere que la transacción se origina desde una ubicación o red sospechosa (ej. VPNs, proxies o países de alto riesgo).
-     *   Esto permite al equipo de riesgo priorizar sus alertas en estas tres características, optimizando sus recursos.
-
+*   **Rendimiento del Modelo:** El modelo XGBoost optimizado logró un **AUC-ROC de 0.6049** y un **F1-Score de 0.00** para la clase de fraude en el conjunto de test. 
+*   **Análisis del Resultado (Honesto):** El modelo **NO logró detectar los 2 fraudes** presentes en el conjunto de test (Recall = 0.00). Esto se debe a tres factores principales:
+    1.  **Dataset extremadamente pequeño:** Solo 1,500 transacciones en total, lo que deja apenas **12 fraudes** para entrenamiento y 2 para test.
+    2.  **Desbalance severo:** La proporción de fraude (~0.8%) es tan baja que el modelo no tiene suficientes ejemplos para aprender patrones robustos.
+    3.  **AUC-ROC de 0.60:** Indica que el modelo tiene una capacidad de discriminación apenas superior al azar (0.50). Es un punto de partida, no una solución lista para producción.
+*   **Explicabilidad (SHAP):** A pesar del bajo rendimiento predictivo, el análisis SHAP reveló que las variables con mayor peso en las decisiones del modelo son `merchant_risk_score`, `amount` e `is_foreign_txn`. Esto es **consistente con la intuición de negocio**: montos inusuales y comercios riesgosos son señales clave de fraude.
+*   **Conclusión Profesional:** Este proyecto demuestra el pipeline completo (EDA → Feature Engineering → Modelado → Optimización → SHAP), pero evidencia que **con 1,500 registros no se puede entrenar un detector de fraude confiable**. Para una implementación real se requieren:
+    *   Datasets con decenas de miles de transacciones.
+    *   Técnicas de remuestreo (SMOTE, undersampling).
+    *   Ajuste del umbral de decisión basado en costos de negocio.
 ---
 
 ## ✍️ Autor
