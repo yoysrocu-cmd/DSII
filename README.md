@@ -49,10 +49,12 @@ Sigue estos pasos para reproducir los resultados obtenidos:
 
 1.  **Clonar el repositorio o descargar los archivos:**
     ```bash
-    git clone https://github.com/TU_USUARIO/TU_REPOSITORIO.git
-    ```
+    git clone [github](https://github.com/yoysrocu-cmd/TU_REPOSITORIO.git)
+    cd TU_REPOSITORIO
+    
 2.  **Abrir el Notebook:**
     *   Puedes abrir el archivo `Entrega_II_Proy_Fraude.ipynb` directamente en [![Abrir en Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/12Z5Jl2H3bDysw4NFV66rwlgUsXWXJWxu?usp=sharing) o en tu entorno local de Jupyter.
+    *   
 3.  **Cargar el Dataset:**
     *   Si estás en Colab, ejecuta la celda de carga de datos y sube el archivo `fraud_1500.csv` cuando se te solicite. *(El código ya está preparado para esto).*
     *   Si estás en local, asegúrate de que el archivo `.csv` esté en la misma carpeta que el notebook.
@@ -99,6 +101,16 @@ El proyecto sigue un flujo de trabajo estructurado y reproducible:
     *   Datasets con decenas de miles de transacciones.
     *   Técnicas de remuestreo (SMOTE, undersampling).
     *   Ajuste del umbral de decisión basado en costos de negocio.
+ 
+### Limitaciones y Trabajo Futuro
+
+A pesar de haber implementado un pipeline completo y reproducible, el modelo presenta limitaciones significativas debido al tamaño del dataset (1,500 transacciones con solo ~12 fraudes). El AUC-ROC de 0.60 y el Recall de 0.00 en el umbral por defecto (0.5) evidencian que **el modelo no está listo para producción**. 
+
+Como trabajo futuro se propone:
+1.  **Ajuste del umbral de decisión** basado en costos de negocio (implementado en la sección "Análisis Avanzado del Desbalance").
+2.  **Técnicas de remuestreo** como SMOTE o ADASYN para generar fraudes sintéticos.
+3.  **Ampliación del dataset** con datos reales de mayor volumen.
+4.  **Modelos específicos para anomalías** como Isolation Forest o Autoencoders.
 ---
 
 ## ✍️ Autor
